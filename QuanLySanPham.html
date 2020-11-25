@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div>
+<h1>Quản lý sản phẩm</h1>
+<input type="text" id="productname" placeholder="product name">
+<button onclick="addProduct()" >Add</button>
+<table id="listproduct"></table>
+
+</div>
+<script>
+    let products=['Cam','Quyt','Tao'];
+
+    function display(){
+        let str='<tr>'+
+            '<th></th>'+
+            '<th>Product name</th>' +
+            '<th colspan="2">Action</th>' +
+            "</tr>";
+        for (let i=0;i < products.length;i++){
+            str += '<tr>' +
+                '<td>'+ (i+1)+ '</td>' +
+                '<td>'+ products[i] + '</td>'+
+                '<td><button onclick="editProduct('+ i +')"> Edit </button></td>' +
+                '<td><button onclick="delProduct('+ i +')"> Delete </button></td>'+
+                '</tr>'
+        }
+        document.getElementById('listproduct').innerHTML= str;
+    }
+
+
+    function addProduct(){
+        let nameInput= document.getElementById('productname');
+        if (nameInput.value== '')
+            alert('Vui long nhap ten san pham');
+        else {
+            let product = nameInput.value;
+            products.push(product);
+            clearInput();
+            display();
+        }
+    }
+
+    function delProduct(index){
+        products.splice(index,1);
+        display();
+    }
+
+    function editProduct(index){
+        let newName= prompt('Nhap ten moi san pham');
+        products[index]= newName;
+        display();
+    }
+    function clearInput(){
+        document.getElementById('productname').value = '';
+    }
+
+    display();
+
+</script>
+
+</body>
+</html>

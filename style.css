@@ -1,0 +1,22 @@
+div {
+    text-align:center; color:Black; line-height:1;
+}
+
+td {
+    background-color:gainsboro;  width:400px; height:60px;
+
+}
+tr,th {
+    background-color: orange;  width:400px; height: 60px;
+}
+table { margin-left: auto; margin-right: auto; line-height:1;
+    border:1px;
+}
+input {
+    width: 500px;
+    height: 20px;
+}
+button {
+    height: 25px;
+    width: 100px;
+}
